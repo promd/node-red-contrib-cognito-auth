@@ -1,0 +1,66 @@
+<script type="text/javascript">
+    RED.nodes.registerType('cognito-auth',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            target: {value:"payload"},
+            userpoolid: {value:""},
+            clientid: {value:""},
+            tokentype: {value: "access"}
+        },
+        credentials: {
+            username: {type:"text"},
+            password: {type:"password"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/user-circle-o",
+        label: function() {
+            return this.name||"cognito-auth";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="cognito-auth">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-target"><i class="fa fa-tag"></i>Target attribute</label>
+        <input type="text" id="node-input-target" placeholder="msg Attribute">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-username"><i class="fa fa-tag"></i> Username</label>
+        <input type="text" id="node-input-username" placeholder="Cognito User Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-password"><i class="fa fa-tag"></i> Password</label>
+        <input type="password" id="node-input-password" placeholder="Cognito User Password">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-userpoolid"><i class="fa fa-tag"></i>Userpool Id</label>
+        <input type="text" id="node-input-userpoolid" placeholder="Cognito userpoolid">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-clientid"><i class="fa fa-tag"></i>Client Id</label>
+        <input type="text" id="node-input-clientid" placeholder="Cognito clientid">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-tokentype"><i class="fa fa-tag"></i>Token Type</label>
+        <input type="text" id="node-input-tokentype" placeholder="Cognito tokentype">
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="cognito-auth">
+    <p> A simple node that authenticates against AWS cognito and always returns a valid JWT.<br/>
+        Tokens that are still valid will be kept.</p>
+</script>
