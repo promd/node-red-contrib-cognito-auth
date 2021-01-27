@@ -13,6 +13,10 @@
   },
   "author": "npm@pro-md.de",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promd/node-red-contrib-cognito-auth.git"
+  },  
   "dependencies": {
     "amazon-cognito-identity-js": "^4.5.7",
     "jwt-decode": "^3.1.2"
