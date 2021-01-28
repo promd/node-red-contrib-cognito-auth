@@ -8,6 +8,7 @@
       "cognito-auth": "cognito-auth.js"
     }
   },
+  "keywords": ["node-red"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
