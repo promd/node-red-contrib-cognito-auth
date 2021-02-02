@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-cognito-auth",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "authenticates against AWS Cognito to retrieve a JWT Token",
   "main": "index.js",
   "node-red": {
@@ -8,7 +8,9 @@
       "cognito-auth": "cognito-auth.js"
     }
   },
-  "keywords": ["node-red"],
+  "keywords": [
+    "node-red"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/promd/node-red-contrib-cognito-auth.git"
-  },  
+  },
   "dependencies": {
     "amazon-cognito-identity-js": "^4.5.7",
     "jwt-decode": "^3.1.2"
