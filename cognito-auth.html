@@ -6,8 +6,11 @@
             name: {value:""},
             target: {value:"payload"},
             userpoolid: {value:""},
+            userpoolidType: {value:"str"},
             clientid: {value:""},
-            tokentype: {value: "access"}
+            clientidType: {value:"str"},
+            tokentype: {value: "access"},
+            tokentypeType: {value: "str"}
         },
         credentials: {
             username: {type:"text"},
@@ -18,8 +21,28 @@
         icon: "font-awesome/user-circle-o",
         label: function() {
             return this.name||"cognito-auth";
+        },
+                  
+        oneditprepare: function() {
+            $("#node-input-userpoolid").typedInput({
+                type:"str",
+                types:["str","msg", "flow","global"],
+                typeField: "#node-input-userpoolidType"
+            });
+            $("#node-input-clientid").typedInput({
+                type:"str",
+                types:["str","msg", "flow","global"],
+                typeField: "#node-input-clientidType"
+            });
+            $("#node-input-tokentype").typedInput({
+                type:"str",
+                types:["str","msg", "flow","global"],
+                typeField: "#node-input-tokentypeType"
+            })
+
         }
     });
+
 </script>
 
 <script type="text/html" data-template-name="cognito-auth">
@@ -46,16 +69,19 @@
     <div class="form-row">
         <label for="node-input-userpoolid"><i class="fa fa-tag"></i>Userpool Id</label>
         <input type="text" id="node-input-userpoolid" placeholder="Cognito userpoolid">
+        <input type="hidden" id="node-input-userpoolidType">
     </div>
-
+    
     <div class="form-row">
         <label for="node-input-clientid"><i class="fa fa-tag"></i>Client Id</label>
         <input type="text" id="node-input-clientid" placeholder="Cognito clientid">
+        <input type="hidden" id="node-input-clientidType">
     </div>
 
     <div class="form-row">
         <label for="node-input-tokentype"><i class="fa fa-tag"></i>Token Type</label>
         <input type="text" id="node-input-tokentype" placeholder="Cognito tokentype">
+        <input type="hidden" id="node-input-tokentypeType">
     </div>
 
 </script>

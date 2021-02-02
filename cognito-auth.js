@@ -43,6 +43,7 @@ const session = ({ Username, Password, UserPoolId, ClientId, TokenType }) => new
 module.exports = function(RED) {
     function getJWToken(config) {
         RED.nodes.createNode(this,config);
+
         var Username    = this.credentials.username;
         var Password    = this.credentials.password;
         var node = this;
@@ -69,10 +70,11 @@ module.exports = function(RED) {
                 // Compute a new token
                 //node.warn("Invalid / expired Token:" + token);
 
-                const UserPoolId  = config.userpoolid;
-                const ClientId    = config.clientid;
-                const TokenType   = config.tokentype;
-        
+                node.warn(config);
+                const UserPoolId  = RED.util.evaluateNodeProperty(config.userpoolid,config.userpoolidType,node,msg);
+                const ClientId    = RED.util.evaluateNodeProperty(config.clientid,config.clientidType,node,msg);
+                const TokenType   = RED.util.evaluateNodeProperty(config.tokentype,config.tokentypeType,node,msg);
+
                 try {
                     node.status({fill:"yellow",shape:"ring",text:"authenticating..."});
                     session({ Username, Password, UserPoolId, ClientId, TokenType })
