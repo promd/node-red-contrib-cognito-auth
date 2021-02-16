@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-cognito-auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "authenticates against AWS Cognito to retrieve a JWT Token",
   "main": "index.js",
   "node-red": {

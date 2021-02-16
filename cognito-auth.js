@@ -84,7 +84,10 @@ module.exports = function(RED) {
                             msg[config.target] = token;
                             node.send(msg);
                             })
-                        .catch((error) => { node.error(error) }  )
+                        .catch((error) => { 
+                            node.error(error);
+                            node.status({fill:"red",shape:"ring",text:error.message});
+                        }  )
                 } catch(error){
                     node.error(error.message);
                     this.status({fill:"red",shape:"ring",text:"error"});
@@ -92,7 +95,7 @@ module.exports = function(RED) {
   
             } else {
                 //node.warn("Token OK");
-                node.status({fill:"green",shape:"ring",text:"authenticated"});
+                node.status({fill:"green",shape:"ring",text:"authenticated (cache)"});
                 msg[config.target] = nodeContext.get("token");
                 node.send(msg);
             }
